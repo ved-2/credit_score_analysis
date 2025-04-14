@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Analysis System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Credit Analysis System</h1>
+            <p>Get a comprehensive analysis of your credit profile</p>
+        </header>
+
+        <main>
+            <form id="creditForm" class="form-section">
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="annualIncome">Annual Income ($)</label>
+                    <input type="number" id="annualIncome" name="annualIncome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="monthlySalary">Monthly Salary ($)</label>
+                    <input type="number" id="monthlySalary" name="monthlySalary" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="numBankAccounts">Number of Bank Accounts</label>
+                    <input type="number" id="numBankAccounts" name="numBankAccounts" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="numCreditCards">Number of Credit Cards</label>
+                    <input type="number" id="numCreditCards" name="numCreditCards" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="outstandingDebt">Outstanding Debt ($)</label>
+                    <input type="number" id="outstandingDebt" name="outstandingDebt" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="numDelayedPayments">Number of Delayed Payments</label>
+                    <input type="number" id="numDelayedPayments" name="numDelayedPayments" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="occupation">Occupation</label>
+                    <select id="occupation" name="occupation" required>
+                        <option value="professional">Professional</option>
+                        <option value="business">Business</option>
+                        <option value="service">Service</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="submit-btn">Analyze</button>
+                    <button type="reset" class="reset-btn" id="resetBtn">Reset</button>
+                </div>
+            </form>
+
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <h2>Analysis Results</h2>
+                
+                <div class="credit-score">
+                    <div class="score-circle"></div>
+                    <div class="score-details">
+                        <h3>Credit Score</h3>
+                        <p class="score-value" id="creditScoreValue">0</p>
+                        <p class="score-category" id="creditScoreCategory">Poor</p>
+                    </div>
+                </div>
+
+                <div class="analysis-sections">
+                    <div class="analysis-box">
+                        <h3>Risk Assessment</h3>
+                        <p>Risk Level: <span id="riskLevel">Low</span></p>
+                        <div class="chart-box">
+                            <canvas id="riskChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="analysis-box">
+                        <h3>Customer Segmentation</h3>
+                        <p>Segment: <span id="customerSegment">Basic</span></p>
+                        <p>Age Group: <span id="ageGroup">Young Adult</span></p>
+                        <p>Recommended Focus: <span id="ageFocus">Building Credit</span></p>
+                    </div>
+
+                    <div class="analysis-box">
+                        <h3>Financial Health</h3>
+                        <p>Debt-to-Income Ratio: <span id="debtToIncome">0%</span></p>
+                        <p>Payment History: <span id="paymentHistory">Excellent</span></p>
+                        <p>Credit Utilization: <span id="creditUtilization">0%</span></p>
+                        <p>Savings Rate: <span id="savingsRate">0%</span></p>
+                        <div class="chart-box">
+                            <canvas id="financialHealthChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="analysis-box">
+                        <h3>Payment Behavior</h3>
+                        <p>Payment Consistency: <span id="paymentConsistency">Excellent</span></p>
+                        <p>Default Risk: <span id="defaultRisk">Low</span></p>
+                        <div class="chart-box">
+                            <canvas id="paymentBehaviorChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="analysis-box">
+                        <h3>Occupation Insights</h3>
+                        <p>Risk Level: <span id="occupationRisk">Low</span></p>
+                        <p>Recommended Products: <span id="occupationProducts">Premium Credit Cards</span></p>
+                    </div>
+
+                    <div class="analysis-box">
+                        <h3>Loan Recommendations</h3>
+                        <ul id="loanRecommendations" class="recommendations-list">
+                        </ul>
+                    </div>
+
+                    <div class="analysis-box">
+                        <h3>Product Recommendations</h3>
+                        <ul id="productRecommendations" class="recommendations-list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
